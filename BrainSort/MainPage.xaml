@@ -4,17 +4,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="BrainSort.MainPage"
     x:Name="This"
-    Title="BrainSort">
+    Title="BrainSort"
+    BackgroundColor="White">
 
     <StackLayout Padding="20">
-        <Entry x:Name="Entry" Text="{Binding EntryText, Source={x:Reference This}}" Placeholder="Enter text..." />
-        <Label Text="Reversed" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0" />
-        <Label Text="{Binding ReversedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" TextColor="Black" />
-        <Label Text="Sorted" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0" />
+        <Entry x:Name="Entry" Text="{Binding EntryText, Source={x:Reference This}}" Placeholder="Enter text..." ClearButtonVisibility="WhileEditing" />
+        <!--<Label Text="Reversed:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0" />
+        <Label Text="{Binding ReversedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" TextColor="Black" />-->
+        <Label Text="Alphabetical:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0" />
         <Label Text="{Binding SortedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" TextColor="Black" />
-        <Label Text="Reverse Sorted" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0"/>
+        <Label Text="Reverse Alphabetical:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0"/>
         <Label Text="{Binding ReversedSortedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" TextColor="Black" />
-        <Label Text="Count" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}"  FontSize="Small" TextColor="LightGray" Padding="0,10,0,0"/>
+        <Label Text="# of Characters:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}"  FontSize="Small" TextColor="LightGray" Padding="0,10,0,0"/>
         <Label Text="{Binding CharacterCount, Source={x:Reference This}}" TextColor="{Binding CountColor, Source={x:Reference This}}" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" />
     </StackLayout>
 

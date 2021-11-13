@@ -21,22 +21,22 @@ namespace BrainSort
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ReversedText = new string(e?.NewTextValue?.ToUpperInvariant()?.Where(char.IsLetterOrDigit)?.Reverse()?.ToArray()) ?? null;
+            //ReversedText = new string(e?.NewTextValue?.ToUpperInvariant()?.Where(char.IsLetterOrDigit)?.Reverse()?.ToArray()) ?? null;
             SortedText = new string(e?.NewTextValue?.ToUpperInvariant()?.Where(char.IsLetterOrDigit)?.OrderBy(x => x)?.ToArray()) ?? null;
             ReversedSortedText = new string(e?.NewTextValue?.ToUpperInvariant()?.Where(char.IsLetterOrDigit)?.OrderByDescending(x => x)?.ToArray()) ?? null;
-            CharacterCount = ReversedText?.Count().ToString() ?? null;
-            IsShowingLabels = ReversedText.Any();
+            CharacterCount = SortedText?.Count().ToString() ?? null;
+            IsShowingLabels = SortedText.Any();
 
-            if (ReversedText.Count() % 16 == 0)
+            if (SortedText.Count() % 16 == 0)
                 CountColor = Color.Green;
-            else if (ReversedText.Count() % 4 == 0)
+            else if (SortedText.Count() % 4 == 0)
                 CountColor = Color.Orange;
             else
                 CountColor = Color.Red;
         }
 
         public string EntryText { get; set; }
-        public string ReversedText { get; set; }
+        //public string ReversedText { get; set; }
         public string SortedText { get; set; }
         public string ReversedSortedText { get; set; }
         public string CharacterCount { get; set; }
