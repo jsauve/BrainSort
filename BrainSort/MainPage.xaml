@@ -5,18 +5,20 @@
     x:Class="BrainSort.MainPage"
     x:Name="This"
     Title="BrainSort"
-    BackgroundColor="White">
+    BackgroundColor="{AppThemeBinding Dark=#333333, Light=#FFFFFF}">
 
     <StackLayout Padding="20">
-        <Entry x:Name="Entry" Text="{Binding EntryText, Source={x:Reference This}}" Placeholder="Enter text..." ClearButtonVisibility="WhileEditing" />
+        <Frame BorderColor="LightGray" BackgroundColor="Transparent" Padding="0" HasShadow="False">
+            <Entry x:Name="Entry" Style="{StaticResource EntryStyle}" Text="{Binding EntryText, Source={x:Reference This}}"  Placeholder="Enter text..." ClearButtonVisibility="WhileEditing" />
+        </Frame>
         <!--<Label Text="Reversed:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0" />
         <Label Text="{Binding ReversedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" TextColor="Black" />-->
-        <Label Text="Alphabetical:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0" />
-        <Label Text="{Binding SortedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" TextColor="Black" />
-        <Label Text="Reverse Alphabetical:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" TextColor="LightGray" Padding="0,10,0,0"/>
-        <Label Text="{Binding ReversedSortedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" TextColor="Black" />
-        <Label Text="# of Characters:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}"  FontSize="Small" TextColor="LightGray" Padding="0,10,0,0"/>
-        <Label Text="{Binding CharacterCount, Source={x:Reference This}}" TextColor="{Binding CountColor, Source={x:Reference This}}" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" />
+        <Label Style="{StaticResource LabelHeadingStyle}" Text="Alphabetical:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" Padding="0,10,0,0" />
+        <Label Style="{StaticResource LabelValueStyle}" Text="{Binding SortedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" />
+        <Label Style="{StaticResource LabelHeadingStyle}" Text="Reverse Alphabetical:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontSize="Small" Padding="0,10,0,0"/>
+        <Label Style="{StaticResource LabelValueStyle}" Text="{Binding ReversedSortedText, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" />
+        <Label Style="{StaticResource LabelHeadingStyle}" Text="# of Characters:" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}"  FontSize="Small" Padding="0,10,0,0"/>
+        <Label Style="{StaticResource LabelValueStyle}" Text="{Binding CharacterCount, Source={x:Reference This}}" TextColor="{Binding CountColor, Source={x:Reference This}}" IsVisible="{Binding IsShowingLabels, Source={x:Reference This}}" FontAttributes="Bold" FontSize="Large" />
     </StackLayout>
 
 </ContentPage>
