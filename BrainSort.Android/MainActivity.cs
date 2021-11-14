@@ -4,6 +4,8 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Android.Content.Res;
+using Xamarin.Forms;
 
 namespace BrainSort.Droid
 {
@@ -18,11 +20,22 @@ namespace BrainSort.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnConfigurationChanged(Configuration newConfig)
+        {
+            base.OnConfigurationChanged(newConfig);
+
+            if (Xamarin.Forms.Application.Current.RequestedTheme == OSAppTheme.Dark)
+                SetTheme(Resource.Style.NightTheme);
+            else
+                SetTheme(Resource.Style.MainTheme);
         }
     }
 }

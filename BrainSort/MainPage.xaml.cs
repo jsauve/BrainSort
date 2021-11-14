@@ -23,7 +23,7 @@ namespace BrainSort
         {
             //ReversedText = new string(e?.NewTextValue?.ToUpperInvariant()?.Where(char.IsLetterOrDigit)?.Reverse()?.ToArray()) ?? null;
             SortedText = new string(e?.NewTextValue?.ToUpperInvariant()?.Where(char.IsLetterOrDigit)?.OrderBy(x => x)?.ToArray()) ?? null;
-            ReversedSortedText = new string(e?.NewTextValue?.ToUpperInvariant()?.Where(char.IsLetterOrDigit)?.OrderByDescending(x => x)?.ToArray()) ?? null;
+            ReversedSortedText = new string(SortedText?.Reverse()?.ToArray()) ?? null;
             CharacterCount = SortedText?.Count().ToString() ?? null;
             IsShowingLabels = SortedText.Any();
 
@@ -32,7 +32,20 @@ namespace BrainSort
             else if (SortedText.Count() % 4 == 0)
                 CountColor = Color.Orange;
             else
-                CountColor = Color.Red;
+            {
+                switch (Application.Current.RequestedTheme)
+                {
+                    case OSAppTheme.Light:
+                        CountColor = Color.Black;
+                        break;
+                    case OSAppTheme.Dark:
+                        CountColor = Color.White;
+                        break;
+                    case OSAppTheme.Unspecified:
+                        CountColor = Color.Gray;
+                        break;
+                }  
+            }
         }
 
         public string EntryText { get; set; }
@@ -41,6 +54,6 @@ namespace BrainSort
         public string ReversedSortedText { get; set; }
         public string CharacterCount { get; set; }
         public bool IsShowingLabels { get; set; }
-        public Color CountColor { get; set; } = Color.Red;
+        public Color CountColor { get; set; } = Color.Black;
     }
 }
