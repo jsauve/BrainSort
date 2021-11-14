@@ -5,7 +5,7 @@
     x:Class="BrainSort.App">
     <Application.Resources>
         <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="RoyalBlue"/>
+            <Setter Property="BarBackgroundColor" Value="#1776D2"/>
             <Setter Property="BarTextColor" Value="White" />
         </Style>
 
